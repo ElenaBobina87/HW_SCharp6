@@ -4,22 +4,24 @@
 
 
 System.Console.WriteLine("Введите массив чисел");
-
 string text = Console.ReadLine();
-
-string[] words = text.Split(new char[] { ' ' });
-
-/*foreach (string s in words)  для вывода в терминал
+int[] TextToNum(string text)
 {
-    Console.WriteLine(s);
-}*/
+    string[] words = text.Split(new char[] { ' ' });
 
-int[] num = new int[words.Length];
-for (int i = 0; i < words.Length; i++)
-{
-    num[i] = Convert.ToInt32(words[i]);
+    /*foreach (string s in words)  для вывода в терминал
+    {
+        Console.WriteLine(s);
+    }*/
+
+    int[] num = new int[words.Length];
+    for (int i = 0; i < words.Length; i++)
+    {
+        num[i] = Convert.ToInt32(words[i]);
+    }
+    //System.Console.WriteLine(string.Join(' ', num));
+    return num;
 }
-//System.Console.WriteLine(string.Join(' ', num));
 
 int Positiv(int[] array)
 {
@@ -33,5 +35,7 @@ int Positiv(int[] array)
     }
     return result;
 }
-int res = Positiv(num);
+
+int[] array = TextToNum(text);
+int res = Positiv(array);
 System.Console.WriteLine(res);
